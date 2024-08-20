@@ -1,60 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="ag_hr_employee.list">
-      <field name="name">ag_hr_employee list</field>
-      <field name="model">ag_hr_employee.ag_hr_employee</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
+    <data>
+        <record id="view_employee_form_inherit" model="ir.ui.view">
+            <field name="name">view_employee_form_inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='identification_id']" position="after">
+                    <field name="family_paper_number"/>
+                    <field name="family_registration_number"/>
+                    <field name="account_number"/>
+                    <field name="bank_name"/>
+                </xpath>
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="ag_hr_employee.action_window">
-      <field name="name">ag_hr_employee window</field>
-      <field name="res_model">ag_hr_employee.ag_hr_employee</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="mother_name"/>
+                </xpath>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="ag_hr_employee.action_server">
-      <field name="name">ag_hr_employee server</field>
-      <field name="model_id" ref="model_ag_hr_employee_ag_hr_employee"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+                <xpath expr="//field[@name='certificate']/.." position="after">
+                    <group string="Certificates">
+                        <field name="certificate_info_ids" nolabel="1" colspan="2">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="certification_level"/>
+                                <field name="organization"/>
+                                <field name="graduation_date"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='certificate']" position="after">
+                    <field name="job_grade"/>
+                    <field name="experience_years"/>
+                </xpath>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="ag_hr_employee" id="ag_hr_employee.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="ag_hr_employee.menu_1" parent="ag_hr_employee.menu_root"/>
-    <menuitem name="Menu 2" id="ag_hr_employee.menu_2" parent="ag_hr_employee.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="ag_hr_employee.menu_1_list" parent="ag_hr_employee.menu_1"
-              action="ag_hr_employee.action_window"/>
-    <menuitem name="Server to list" id="ag_hr_employee" parent="ag_hr_employee.menu_2"
-              action="ag_hr_employee.action_server"/>
--->
-  </data>
+                <xpath expr="//field[@name='work_location_id']" position="after">
+                    <field name="job_transfer_process"/>
+                </xpath>
+
+                <xpath expr="//field[@name='address_id']" position="after">
+                    <field name="employee_number"/>
+                    <field name="financial_number"/>
+                    <field name="functional_structure_number"/>
+                    <field name="social_security_number"/>
+                    <field name="insurance_number"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
 </odoo>
