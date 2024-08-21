@@ -43,6 +43,11 @@
                     <field name="social_security_number"/>
                     <field name="insurance_number"/>
                 </xpath>
+
+                <xpath expr="//group[@name='active_group']" position="inside">
+                    <field name="work_start_date"/>
+                </xpath>
+
             </field>
         </record>
     </data>
