@@ -9,8 +9,6 @@
                 <xpath expr="//field[@name='identification_id']" position="after">
                     <field name="family_paper_number"/>
                     <field name="family_registration_number"/>
-                    <field name="account_number"/>
-                    <field name="bank_name"/>
                 </xpath>
 
                 <xpath expr="//field[@name='country_id']" position="after">

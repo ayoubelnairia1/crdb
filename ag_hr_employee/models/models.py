@@ -8,8 +8,6 @@ class HREmployee(models.Model):
 
     family_paper_number = fields.Integer(string="Family Paper no.", help="Family paper number of employee")
     family_registration_number = fields.Integer(string="Family Registration No.", help="Family registration number of employee")
-    account_number = fields.Integer(string="Account Number", help="Account number of employee")
-    bank_name = fields.Char(string="Bank Name", help="Bank name of employee")
     mother_name = fields.Char(string="Mother Name", help="Mother name of employee")
     job_grade = fields.Integer(string="Job Grade", required=True, help="Job grade of employee")
     experience_years = fields.Integer(string="Experience Years", help="Experience years of employee")
