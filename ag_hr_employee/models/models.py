@@ -20,7 +20,6 @@ class HREmployee(models.Model):
     social_security_number = fields.Integer(string="Social Security Number", required=True, help="Social security number of employee")
     insurance_number = fields.Integer(string="Insurance Number", help="Insurance number of employee")
     certificate_info_ids = fields.One2many('hr.certificate.info', 'employee_id', string="Certificate Info")
-    work_start_date = fields.Date(string="Work Start Date", help="Work start date of employee")
 
 
 class HRCertificateInfo(models.Model):
@@ -34,3 +33,8 @@ class HRCertificateInfo(models.Model):
     organization = fields.Char(string="Organization", help="Organization of certificate")
     graduation_date = fields.Date(string="Graduation Date", help="Graduation date of certificate")
 
+
+class HRContract(models.Model):
+    _inherit = 'hr.contract'
+
+    work_start_date = fields.Date(string="Work Start Date", help="Work start date of employee")
