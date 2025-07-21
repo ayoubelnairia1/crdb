@@ -1,0 +1,12 @@
+<odoo>
+    <report
+        id="action_leave_emergency_report"
+        string="تقرير إجازة طارئة"
+        model="hr.leave"
+        report_type="qweb-pdf"
+        name="custom_leaves_report.leave_emergency_report_template"
+        file="custom_leaves_report.leave_emergency_report_template"
+        attachment_use="False"
+        print_report_name="'تقرير_إجازة_طارئة_%s' % (object.employee_id.name)"
+    />
+</odoo>

@@ -1,0 +1,255 @@
+<odoo>
+    <template id="report_hr_employee_evaluation">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <style type="text/css">
+                    @font-face {
+                    font-family: 'al-mohanad';
+                    src: url('/hr_employee_evaluation_report/static/src/fonts/al-mohanad.ttf') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
+                    }
+                    .al-mohanad-arabic {
+                    font-family: 'al-mohanad', Arial, sans-serif !important;
+                    direction: rtl;
+                    background: #fff;
+                    color: #222;
+                    font-size: 19px;
+                    }
+                    .report-header {
+                    width: 100%;
+                    display: flex;
+                    direction: rtl;
+                    justify-content: center;
+                    font-size: 38px;
+                    font-weight: bold;
+                    margin-bottom: 8px;
+                    align-items: center;
+                    gap: 38px; /* or adjust as needed */
+                    }
+                    .header-title {
+                    font-size: 32px;
+                    font-weight: bold;
+                    font-family: 'al-mohanad', Arial, sans-serif;
+                    }
+                    .report-header span {
+                    font-weight: bold;
+                    font-size: 28px;
+                    }
+                    .main-title-box {
+                    border: 1px solid #888;
+                    border-radius: 2px;
+                    background: #e7e6e6;
+                    direction: rtl;
+                    text-align: center;
+                    margin-bottom: 18px;
+                    font-size: 24px;
+                    font-weight: bold;
+                    padding: 10px 0 10px 0;
+                    letter-spacing: 1px;
+                    }
+                    .fields-table {
+                    width: 100%;
+                    font-size: 23px;
+                    border-collapse: separate;
+                    padding: 8px 160px 14px 5px;
+                    border-spacing: 0 25px;
+                    margin-bottom: 8px;
+                    }
+                    .fields-table td {
+                    padding: 0;
+                    }
+                    .dotline {
+                    border-bottom: 1px dotted #888;
+                    display: inline-block;
+                    min-width: 80px;
+                    height: 1.2em;
+                    vertical-align: middle;
+                    margin: 0 4px;
+                    }
+                    .divider {
+                    border: none;
+                    border-top: 4px solid #bdbdbd;
+                    margin: 26px 0 22px 0;
+                    }
+                    .bottom-sections {
+                    display: flex;
+                  <!--  gap: 18px; -->
+                    margin-top: 12px;
+                    }
+                    .bottom-box {
+                    border: 1px solid #888;
+                    border-radius: 24px;
+                    background: #fff;
+                    padding: 20px 90px 16px 16px;
+                    flex: 1;
+                    min-width: 0;
+                    font-size: 15px;
+                    min-height: 250px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    }
+                    .eval-checks {
+                    list-style: none;
+                    padding-right: 0;
+                    margin: 0 0 0 0;
+                    }
+                    .eval-checks li {
+                    padding-bottom: 7px;
+                    line-height: 1.7;
+                    }
+                    .checkbox-square {
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    border: 1.5px solid #444;
+                    border-radius: 3px;
+                    margin-left: 10px;
+                    vertical-align: middle;
+                    position: relative;
+                    top: -2px;
+                    }
+                </style>
+                <t t-foreach="docs" t-as="employee">
+                    <div class="al-mohanad-arabic">
+                        <!-- HEADER -->
+                        <div class="report-header">
+                            <span class="header-title">حكومة الوحدة الوطنية</span>
+                            <img src="/hr_employee_evaluation_report/static/src/img/logo.png"
+                                 style="height:75px;vertical-align:middle; margin: 0 38px;"/>
+                            <span class="header-title">جهاز تنمية وتطوير المنطقة الوسطى</span>
+                        </div>
+                        <!-- TITLE -->
+                        <br/>
+                        <br/>
+                        <div class="main-title-box">
+                            تقييم كفاءة أداء الموظف
+                        </div>
+                        <br/>
+                        <br/>
+                        <!-- FIELDS -->
+                        <table class="fields-table"
+                               style="margin-top:0; padding-top:0; margin-left:auto; margin-right:auto;">
+                            <tr>
+                                <td>
+                                    عن المدة التي تبدأ من
+                                    <span class="dotline" style="width:15px;"></span>
+                                    / <span class="dotline" style="width:15px;"></span> /
+                                    <span class="dotline" style="width:40px;"></span>
+                                    م
+                                    <br/>
+                                     وتنتهي في
+                                    <span class="dotline" style="width:15px;"></span>
+                                    / <span class="dotline" style="width:15px;"></span> /
+                                    <span class="dotline" style="width:40px;"></span>
+                                    م
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    جهة العمل :
+                                    <span class="dotline" style="width:480px;"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    اسم الموظف :
+                                    <span class="" style="width:240px;">
+                                        <span t-esc="employee.name"/>
+                                    </span>&#160;&#160;
+                                    (رقم وظيفته بالهيكل وسنة اعتماده:
+                                    <span class="dotline" style="width:15px;"></span>
+                                    / <span class="dotline" style="width:15px;"></span> /
+                                    <span class="dotline" style="width:40px;"></span>
+                                    )
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    الرقم الوطني :
+                                    <span class="" style="width:320px;">
+                                        <span t-esc="employee.identification_id or ''"/>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--    الجنسية ( لغير الليبي ) :
+                                        <span class="dotline" style="width:130px;"></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;  -->
+                                    ورقم الهوية :
+                                    <span t-esc="employee.passport_id or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    المجموعة الوظيفية :
+                                    <span class="dotline" style="width:110px;"></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                    الوظيفة :
+                                    <span t-esc="employee.job_id.name or ''"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                    الدرجة :
+                                    <span t-esc="employee.job_grade or ''"/>&#160;&#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    الإدارة / القسم :
+                                    <span t-esc="employee.department_id.name or ''"/>&#160;&#160;
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- DIVIDER -->
+                        <hr class="divider"/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <!-- TWO BOXES AT BOTTOM -->
+                        <div class="bottom-sections">
+                            <div class="bottom-box">
+                                <div style="margin-bottom:8px; padding-right: 180px; text-align:center;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                    بموجب هذا التقييم يتم مراجعة ملف الموظف عن السنة التي يقيم عنها أداؤه.
+                                </div>
+                                <div style="margin-bottom:8px; padding-right: 180px; text-align:right;">
+                                    يراعى المدد القانونية لمباشرة المهمة بالنسبة للنتيجة.
+                                </div>
+                                <div style="margin-bottom:8px; padding-right: 180px; text-align:right;">
+                                    وفقا لما نصت عليه التشريعات النافذة.
+                                </div>
+                            </div>
+                            <div class="bottom-box">
+                                <ul class="eval-checks">
+                                    <li>
+                                        <span class="checkbox"></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                        يشير تقييم الموظف بدرجة:
+                                    </li>
+                                    <li>
+                                        <span class="checkbox"></span>
+                                        (ممتاز): إذا حصل على مجموع كلي من 90 إلى 100
+                                    </li>
+                                    <li>
+                                        <span class="checkbox"></span>
+                                        (جيد جداً): إذا حصل على مجموع كلي من 75 إلى 89
+                                    </li>
+                                    <li>
+                                        <span class="checkbox"></span>
+                                        (جيد): إذا حصل على مجموع كلي من 60 إلى 74
+                                    </li>
+                                    <li>
+                                        <span class="checkbox"></span>
+                                        (متوسطة): إذا حصل على مجموع كلي من 45 إلى 59
+                                    </li>
+                                    <li>
+                                        <span class="checkbox"></span>
+                                        (ضعيف): إذا حصل على مجموع كلي أقل من 44
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

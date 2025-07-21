@@ -1,0 +1,4 @@
+<odoo>
+    <menuitem id="menu_leave_report_root" name="Leave Reports" parent="hr_holidays.menu_hr_holidays_root"/>
+    <menuitem id="menu_leave_report_wizard" name="Generate Leave Report" parent="menu_leave_report_root" action="action_leave_report_wizard"/>
+</odoo>

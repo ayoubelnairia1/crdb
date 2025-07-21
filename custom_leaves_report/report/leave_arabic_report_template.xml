@@ -1,0 +1,78 @@
+<odoo>
+    <template id="leave_arabic_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div style="direction: rtl; font-family: 'Arial', sans-serif; border: 1px solid #000; padding: 24px;">
+                    <!-- Header -->
+                    <div style="text-align: center;">
+                        <img src="/custom_leaves_report/static/src/img/logo.png" style="max-height:80px;" />
+                        <h3 style="margin: 8px 0 2px 0;">جهاز تنمية وتطوير المنطقة الوسطى</h3>
+                        <h5 style="margin: 0 0 16px 0;">إدارة الشؤون الإدارية والخدمات</h5>
+                        <h4 style="margin: 0 0 12px 0;">نموذج طلب الحصول على إجازة سنوية</h4>
+                    </div>
+                    <!-- First Section -->
+                    <div style="border:1px solid #000; margin-bottom:10px; padding:10px;">
+                        <strong>القسم الأول: بيانات تملأ من قبل الموظف طالب الإجازة:-</strong>
+                        <br/>
+                        الاسم: <span t-esc="docs.employee_id.name"/> &#160;&#160;
+                        الوظيفة: <span t-esc="docs.employee_id.job_id.name"/> &#160;&#160;
+                        الدرجة: <span t-esc="docs.employee_id.grade_id.name if hasattr(docs.employee_id, 'grade_id') else ''"/>
+                        <br/>
+                        القسم: <span t-esc="docs.employee_id.department_id.name"/>
+                        <br/>
+                        تاريخ بداية الإجازة: <span t-esc="docs.request_date_from"/>
+                        &#160;&#160; حتى تاريخ نهاية الإجازة: <span t-esc="docs.request_date_to"/>
+                        <br/>
+                        العنوان خلال الإجازة: ............................................................
+                        <br/>
+                        تاريخ تقديم الطلب: <span t-esc="docs.request_date_from"/>
+                    </div>
+                    <!-- Second Section -->
+                    <div style="border:1px solid #000; margin-bottom:10px; padding:10px;">
+                        <strong>القسم الثاني: بيانات تملأ من قبل قسم شؤون الموظفين:</strong>
+                        <br/>
+                        مجموع الإجازة المستحقة حتى تاريخ: ............ / ............ / 202
+                        <br/>
+                        (بيانات يمكن حسابها آلياً أو تترك فارغة للكتابة اليدوية)
+                        <br/>
+                        مجموع الإجازة المستخدمة حتى تاريخ: ............ / ............ / 202
+                        <br/>
+                        مجموع عدد الأيام المتبقية للعمل: ............
+                        <br/>
+                        التاريخ: ............ / ............ / 202
+                        <br/>
+                        التوقيع: .............................................
+                    </div>
+                    <!-- Third Section -->
+                    <div style="border:1px solid #000; margin-bottom:10px; padding:10px;">
+                        <strong>القسم الثالث: رأي الرئيس المباشر:</strong>
+                        <br/>
+                        ............................................................
+                        <br/>
+                        الوظيفة / قسم الملاحظات: ...................................
+                        <br/>
+                        التوقيع: .............................................
+                    </div>
+                    <!-- Fourth Section -->
+                    <div style="border:1px solid #000; margin-bottom:10px; padding:10px;">
+                        <strong>القسم الرابع: رأي الرئيس الأعلى:</strong>
+                        <br/>
+                        ............................................................
+                        <br/>
+                        الوظيفة / قسم الملاحظات: ...................................
+                        <br/>
+                        التوقيع: .............................................
+                    </div>
+                    <!-- Notes -->
+                    <div style="border:1px solid #000; margin-bottom:10px; padding:10px;">
+                        <strong>ملاحظات:</strong>
+                        <br/>
+                        ..............................................................................
+                        <br/>
+                        ..............................................................................
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

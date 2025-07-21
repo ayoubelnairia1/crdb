@@ -1,0 +1,141 @@
+<odoo>
+    <template id="leave_medical_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <style type="text/css">
+                    @font-face {
+                        font-family: 'al-mohanad';
+                        src: url('/custom_leaves_report/static/src/fonts/al-mohanad.ttf') format('truetype');
+                        font-weight: normal;
+                        font-style: normal;
+                    }
+                    .al-mohanad-arabic {
+                        font-family: 'al-mohanad', Arial, sans-serif !important;
+                        direction: rtl;
+                        margin-top: 0mm;
+                    }
+                    @page {
+                        margin: 0;
+                    }
+                    .main-border {
+                        margin-top: 0;
+                        padding-top: 0;
+                        border: 0px solid #222;
+                        border-radius: 1px;
+                        max-width: 1000px;
+                        background: #fff;
+                    }
+                    .report-header {
+                        text-align: center;
+                        margin-top: 0px;
+                        margin-bottom: 8px;
+                    }
+                    .report-header img {
+                        max-height: 60px;
+                        margin-bottom: 4px;
+                    }
+                    .section {
+                        border: 1px solid #999;
+                        border-radius: 14px;
+                        margin-bottom: 10px;
+                        padding: 8px 100px 8px 5px;
+                        background: #fff;
+                    }
+                    .section-title {
+                        font-weight: bold;
+                        font-size: 18px;
+                        margin-bottom: 4px;
+                    }
+                    .section-content {
+                        font-size: 15px;
+                        padding: 8px 100px 8px 5px;
+                        text-align: right;
+                        line-height: 2.1;
+                    }
+                    .label {
+                        font-weight: bold;
+                    }
+                    .dotted {
+                        border-bottom: 1px dotted #888;
+                        min-width: 120px;
+                        display: inline-block;
+                        height: 1.1em;
+                        vertical-align: middle;
+                        margin: 0 3px;
+                    }
+                </style>
+                <div class="al-mohanad-arabic main-border" style="margin-top:0; padding-top:0;">
+                    <div class="report-header">
+                        <img src="/custom_leaves_report/static/src/img/logo.png"/>
+                        <div style="font-size: 22px; font-weight: bold;">وزارة الإسكان والتعمير</div>
+                        <div style="font-size: 23px; font-weight: bold;">جهاز تنمية وتطوير المنطقة الوسطى</div>
+                        <div style="font-size: 21px; font-weight: bold;">نموذج راحة طبية</div>
+                    </div>
+                    <!-- Section 1 -->
+                    <div class="section">
+                        <div class="section-title">بيانات تملأ من جهة العمل:</div>
+                        <div class="section-content">
+                            <span class="label">الاسم بالكامل:</span>
+                            <span t-esc="docs.employee_id.name"/>
+                            <br/>
+                            <span class="label">الرقم الوظيفي:</span>
+                            <span class="dotted"></span>
+                            <br/>
+                            <span class="label">مكان العمل:</span>
+                            <span t-esc="docs.employee_id.department_id.name or ''"/>
+                            <br/>
+                            <span class="label">الوظيفة:</span>
+                            <span t-esc="docs.employee_id.job_id.name or ''"/>
+                            <br/>
+                            <span class="label">التاريخ:</span>
+                            <span t-esc="docs.request_date_from"/>
+                            <br/>
+                            اعتمد مدير إدارة الشؤون الإدارية والخدمات
+                        </div>
+                    </div>
+                    <!-- Section 2 -->
+                    <div class="section">
+                        <div class="section-title">المذكور أعلاه مرخص له بإجازة للعلاج الطبي</div>
+                        <div class="section-content">
+                            <div class="section" style="border:1px solid #bbb; margin:10px 0; padding:10px;">
+                                <span class="label">التشخيص:</span><br/>
+                                .....................................................................................<br/>
+                                .....................................................................................<br/>
+                            </div>
+                            <div class="section" style="border:1px solid #bbb; margin:10px 0; padding:10px;">
+                                <span class="label">الإجازة الموصى بها:</span><br/>
+                                .....................................................................................<br/>
+                                .....................................................................................<br/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section 3 -->
+                    <div class="section">
+                        <div class="section-title">بيانات الطبيب والمرافق الصحية:</div>
+                        <div class="section-content">
+                            <span class="label">اسم الطبيب:</span>
+                            <span class="dotted"></span>
+                            <br/>
+                            ختم إدارة المرافق الصحية:<br/><br/>
+                            <span class="label">التوقيع:</span>
+                            <span class="dotted"></span>
+                            <br/>
+                            <span class="label">الوظيفة:</span>
+                            <span class="dotted"></span>
+                            <br/>
+                            <span class="label">التاريخ:</span>
+                            <span class="dotted" style="width:70px"></span> / <span class="dotted" style="width:70px"></span> / <span class="dotted" style="width:70px"></span>
+                        </div>
+                    </div>
+                    <!-- Note Section -->
+                    <div class="section">
+                        <div class="section-title">ملاحظة:</div>
+                        <div class="section-content" style="font-size: 13px; text-align: left;">
+                            في حال عدم مراجعة عامل الإدارة يعاد النموذج ويبلغ الدائرة المختصة لاتخاذ اللازم.
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

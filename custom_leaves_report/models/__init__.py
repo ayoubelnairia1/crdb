@@ -1,0 +1,1 @@
+# No model extension needed, but keep for future expansion

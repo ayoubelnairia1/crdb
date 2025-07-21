@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Al Mohanad';
+    src: url('/hr_employee_evaluation_report/static/src/fonts/al-mohanad.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.al-mohanad-font {
+    font-family: 'Al Mohanad', Tahoma, Arial, sans-serif !important;
+}

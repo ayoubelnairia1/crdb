@@ -1,0 +1,12 @@
+<odoo>
+    <report
+        id="action_leave_arabic_custom_report"
+        string="Arabic Leave Request"
+        model="hr.leave"
+        report_type="qweb-pdf"
+        name="leave_arabic_custom_report.leave_arabic_report_template"
+        file="leave_arabic_custom_report.leave_arabic_report_template"
+        attachment_use="False"
+        print_report_name="'Leave_Request_%s' % (object.employee_id.name)"
+    />
+</odoo>
