@@ -43,6 +43,13 @@
                     <field name="social_security_number"/>
                     <field name="insurance_number"/>
                 </xpath>
+                <xpath expr="//field[@name='insurance_number']" position="after">
+                    <field name="bank_name"/>
+                    <field name="bank_account_number"/>
+                </xpath>
+                <xpath expr="//field[@name='identification_id']" position="after">
+                    <field name="rakam_watany"/>
+                </xpath>
 
             </field>
         </record>
